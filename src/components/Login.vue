@@ -5,12 +5,12 @@
      
         <div class="mydiv1">
             <label class="lbl1">아이디</label>
-            <input type="text" v-model="userid" ref="userid" placeholder="아이디" />
+            <input type="text" v-model="member.userid" ref="userid" placeholder="아이디" />
         </div>
 
         <div class="mydiv1">
             <label class="lbl1">암호</label>
-            <input type="password" v-model="userpw" ref="userpw" placeholder="암호" />
+            <input type="password" v-model="member.userpw" ref="userpw" placeholder="암호" />
 
         </div>
 
@@ -26,12 +26,12 @@
         // 메소드 == 함수 == 기능 구현
         methods :{
             handleLogin(){
-                if(this.userid === ""){
+                if(this.member.userid === ""){
                     alert('아이디를 입력하세요.');
                     this.$refs.userid.focus();
                     return false
                 }
-                if(this.userpw === ""){
+                if(this.member.userpw === ""){
                     alert('암호를 입력하세요,');
                     this.$refs.userpw.focus();
                     return false
@@ -43,23 +43,21 @@
                 //상태(state 변수 설정)
         data(){
             return{
-                userid : 'aa',
-                userpw : ''
+ 
+                member : {
+                    userid : 'aaa',
+                    userpw : 'bbb',
+                }
             }
         },
 
         // 상태변수의 변화를 감지
         watch : {
-            userid : {
+            member : {
                 handler(e) {
                     console.log('watch-userid', e);
                 }
             },
-            userpw : {
-                handler(e) {
-                    console.log('watch-userpw', e);
-                }
-            }
         },
     }
 </script>

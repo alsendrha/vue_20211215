@@ -9,7 +9,10 @@
       <router-link to="/Login">로그인</router-link> /
       <router-link to="/Join">회원가입</router-link> /
       <router-link to="/Board">게시판</router-link> /
-      <router-link to="/Form">form 실습</router-link>
+      <router-link to="/Form">form 실습</router-link>/
+      <router-link to="/Iris">Iris</router-link>/
+      <router-link to="/Exam10">예제</router-link>/
+      <router-link to="/Admin">관리자</router-link>
     </div> 
     
    <router-view></router-view>
