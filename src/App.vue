@@ -12,7 +12,10 @@
       <router-link to="/Form">form 실습</router-link>/
       <router-link to="/Iris">Iris</router-link>/
       <router-link to="/Exam10">예제</router-link>/
-      <router-link to="/Admin">관리자</router-link>
+      <router-link to="/Admin">관리자</router-link>/
+      <router-link to="/Table1">테이블</router-link>/
+      <router-link to="/Table2">테이블2</router-link>/
+      <router-link to="/Table3">테이블3</router-link>
     </div> 
     
    <router-view></router-view>
