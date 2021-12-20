@@ -36,9 +36,9 @@
     export default {
         created(){
             this.items=[
-                {no :1, num1:3, num2:3, num3:34 },
-                {no :1, num1:4, num2:6, num3:36 },
-                {no :1, num1:6, num2:9, num3:23 },
+                {no :1, num1:3, num2:3, num3:2 },
+                {no :1, num1:4, num2:6, num3:4 },
+                {no :1, num1:6, num2:9, num3:5 },
             ];
 
             for(let tmp of this.items){

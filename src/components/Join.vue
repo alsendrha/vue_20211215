@@ -1,55 +1,81 @@
 <template>
     <div class="container">
-        <h3>회원가입</h3>
+        <h3 class="htext">회원가입</h3>
         <hr />
-        <div class="mydiv1">
-            <label class="lbl1">아이디</label>
-            <input type="text" ref="userid" placeholder="아이디" v-model="userid" />
-            <input type="button" value="중복확인" />
-        </div>
-
-        <div class="mydiv1">
-            <label class="lbl1">암호</label>
-            <input type="password" ref="userpw" placeholder="암호" v-model="userpw" />
-        </div>
-
-        <div class="mydiv1">
-            <label class="lbl1">암호확인</label>
-            <input type="password" ref="userpw1" placeholder="암호확인" v-model="userpw1" />
-        </div>
-
-        <div class="mydiv1">
-            <label class="lbl1">이름</label>
-            <input type="text" ref="username" placeholder="이름" v-model="username" />
-        </div>
-
-        <div class="mydiv1">
-            <label class="lbl1">이메일 </label>
-            <input type="text" ref="usermail" placeholder="이메일" v-model="usermail" />
+        <el-form label-width="80px">
+            <el-form-item label="아이디">
+                <el-col :span="11">
+                    <el-input ref="userid" v-model="userid"></el-input>
+                </el-col>
+                <el-row>
+                    <el-button type="primary">중복확인</el-button>
+                </el-row>
+            </el-form-item>
+            <el-form-item label="암호">
+                <el-col :span="11">
+                <el-input ref="userpw" v-model="userpw" type="password"></el-input>
+                </el-col>
+            </el-form-item>
+            <el-form-item label="암호확인">
+                <el-col :span="11">
+                <el-input ref="userpw1" v-model="userpw1" type="password"></el-input>
+                </el-col>
+            </el-form-item>
+            <el-form-item label="이름">
+                <el-col :span="11">
+                <el-input ref="username" v-model="username" type="text"></el-input>
+                </el-col>
+            </el-form-item>
+            <el-form-item label="이메일">
+                <el-col :span="11">
+                <el-input ref="usermail" v-model="usermail" type="text"></el-input>
+                </el-col>
             <label>@</label>
-            <select>
-                <option>naver.com</option>
-                <option>daum.net</option>
-                <option>gmail.com</option>
-            </select>
+            <el-select v-model="value" placeholder="Select">
+                <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
+                </el-option>
+            </el-select>
+            </el-form-item>
+        </el-form>
+        <div>
+        <el-checkbox v-model="checked1" disabled>약관동의</el-checkbox>
+        <el-checkbox v-model="checked2">약관동의</el-checkbox>
         </div>
-
-        <div class="mydiv1">
-            <label class="lbl1"></label>
-            <input type="checkbox" ref="chk1" v-model="chk1" />
-            <label>약관동의</label>
-        </div>
-
-        <div class="mydiv1">
-            <label class="lbl1"></label>
-            <input type="button" value="회원가입" @click="handleLogin" />
-            <input type="button" value="로그인" />
-        </div>
+        <el-row>
+        <el-button type="success" @click="handleLogin">회원가입</el-button>
+        <el-button type="success">로그인</el-button>
+        </el-row>
     </div>
 </template>
 
 <script>
-    export default {
+    import { ref, defineComponent } from 'vue'
+    export default defineComponent({
+        setup() {
+            const checked1 = ref(false)
+
+            return {
+                checked1,
+
+            options: ref([
+                {
+                value: 'naver.com',
+                label: 'naver.com',
+                },
+                {
+                value: 'daum.net',
+                label: 'daum.net',
+                },
+                {
+                value: 'gmail.com',
+                label: 'gmail.com',
+                },
+
+            ]),
+            value: ref(''),
+            }
+        },
+    
         methods :{
             handleLogin(){
                 if(this.userid === ""){
@@ -82,7 +108,7 @@
                     this.$refs.usermail.focus();
                     return false
                 }
-                if(this.chk1 === ""){
+                if(this.checked2 === ""){
                     alert('약관에 동의하세요.');
                     return false
                 }
@@ -96,7 +122,7 @@
                 userpw1 : '',
                 username : '',
                 usermail : '',
-                chk1 : ''
+                checked2 : ''
             }
         },
         watch : {
@@ -125,13 +151,13 @@
                     console.log('watch-usermail', e);
                 }
             },
-            chk1 : {
+            checked2 : {
                 handler(e){
-                    console.log('chk1', e);
+                    console.log('checked2', e);
                 }
             }
         } 
-    }
+    });
 </script>
 
 <style scoped>

@@ -2,22 +2,19 @@
     <div class="container">
         <h3>로그인</h3>
         <hr />
-     
-        <div class="mydiv1">
-            <label class="lbl1">아이디</label>
-            <input type="text" v-model="member.userid" ref="userid" placeholder="아이디" />
-        </div>
+        <el-form label-width="120px">
+            <el-form-item label="아이디">
+                <el-input v-model="member.userid"></el-input>
+            </el-form-item>
 
-        <div class="mydiv1">
-            <label class="lbl1">암호</label>
-            <input type="password" v-model="member.userpw" ref="userpw" placeholder="암호" />
+            <el-form-item label="암호">
+                <el-input v-model="member.userpw" show-password></el-input>
+            </el-form-item>
 
-        </div>
-
-        <div class="mydiv1">
-            <label class="lbl1"></label>
-            <input type="button" value="로그인" @click="handleLogin" />
-        </div>
+            <el-form-item aria-label="">
+                <el-button type="primary" @click="handleLogin" >로그인</el-button>
+            </el-form-item>
+        </el-form>
     </div>
 </template>
 
@@ -62,5 +59,4 @@
     }
 </script>
 <style scoped>
-    @import '../assets/css/mystyle1.css';
 </style>

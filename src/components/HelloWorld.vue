@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <h3>메인</h3>
+    <h3 class="htext">메인</h3>
     
   </div>
 </template>
