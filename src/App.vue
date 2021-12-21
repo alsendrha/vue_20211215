@@ -65,7 +65,9 @@
       <router-link to="/Table3">테이블3</router-link>/
       <router-link to="/CompProp">CompProp</router-link>/
       <router-link to="/Admin1">Admin1</router-link>/
-      <router-link to="/CompSlot">CompSlot</router-link>
+      <router-link to="/CompSlot">CompSlot</router-link>/
+      <router-link to="/Upload1">Upload1</router-link>/
+      <router-link to="/CompSlotScope">CompSlotScope</router-link>
     </div> 
     
     <hr />

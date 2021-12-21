@@ -4,7 +4,7 @@
         <hr />
         <el-form label-width="80px">
             <el-form-item label="아이디">
-                <el-col :span="11">
+                <el-col :span="15">
                     <el-input ref="userid" v-model="userid"></el-input>
                 </el-col>
                 <el-row>
@@ -12,22 +12,22 @@
                 </el-row>
             </el-form-item>
             <el-form-item label="암호">
-                <el-col :span="11">
+                <el-col :span="15">
                 <el-input ref="userpw" v-model="userpw" type="password"></el-input>
                 </el-col>
             </el-form-item>
             <el-form-item label="암호확인">
-                <el-col :span="11">
+                <el-col :span="15">
                 <el-input ref="userpw1" v-model="userpw1" type="password"></el-input>
                 </el-col>
             </el-form-item>
             <el-form-item label="이름">
-                <el-col :span="11">
+                <el-col :span="15">
                 <el-input ref="username" v-model="username" type="text"></el-input>
                 </el-col>
             </el-form-item>
             <el-form-item label="이메일">
-                <el-col :span="11">
+                <el-col :span="15">
                 <el-input ref="usermail" v-model="usermail" type="text"></el-input>
                 </el-col>
             <label>@</label>
@@ -38,8 +38,7 @@
             </el-form-item>
         </el-form>
         <div>
-        <el-checkbox v-model="checked1" disabled>약관동의</el-checkbox>
-        <el-checkbox v-model="checked2">약관동의</el-checkbox>
+        <input type="checkbox" v-model="chk1" /><label>약관동의</label>  
         </div>
         <el-row>
         <el-button type="success" @click="handleLogin">회원가입</el-button>
@@ -52,10 +51,8 @@
     import { ref, defineComponent } from 'vue'
     export default defineComponent({
         setup() {
-            const checked1 = ref(false)
 
             return {
-                checked1,
 
             options: ref([
                 {
@@ -70,10 +67,12 @@
                 value: 'gmail.com',
                 label: 'gmail.com',
                 },
+                
 
             ]),
             value: ref(''),
             }
+            
         },
     
         methods :{
@@ -108,7 +107,7 @@
                     this.$refs.usermail.focus();
                     return false
                 }
-                if(this.checked2 === ""){
+                if(this.chk1 === ""){
                     alert('약관에 동의하세요.');
                     return false
                 }
@@ -122,7 +121,7 @@
                 userpw1 : '',
                 username : '',
                 usermail : '',
-                checked2 : ''
+                chk1 : ''
             }
         },
         watch : {
@@ -151,9 +150,9 @@
                     console.log('watch-usermail', e);
                 }
             },
-            checked2 : {
+            chk1 : {
                 handler(e){
-                    console.log('checked2', e);
+                    console.log('chk1', e);
                 }
             }
         } 
