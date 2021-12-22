@@ -2,6 +2,7 @@
     <div>
         <h4>메뉴2</h4>
         <h5>물품관리</h5>
+        <!-- <tr v-for="scope.row in items" v-bind:key="scope.row"> -->
         <el-table :data="items" size="mini" style="width: 100%"> 
             <el-table-column label="아이디">
                 <template #default="scope">

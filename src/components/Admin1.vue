@@ -8,7 +8,8 @@
             <input type="button" value="menu4" @click="changeMenu(4)" />
             <input type="button" value="menu5" @click="changeMenu(5)" />
         </div>
-
+        <br />
+        <hr />
         <div>
             <component :is="currentComp"></component>
         </div>
@@ -40,7 +41,7 @@
         data(){
             return{
                 compList    : [null, 'menu-1','menu-2','menu-3','menu-4','menu-5'],
-                currentComp : 'menu-2',
+                currentComp : 'menu-5',
             }
         },
 

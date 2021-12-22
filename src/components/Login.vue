@@ -3,12 +3,13 @@
         <h3>로그인</h3>
         <hr />
         <el-form label-width="120px">
-            <el-form-item label="아이디">
-                <el-input v-model="member.userid"></el-input>
-            </el-form-item>
 
+            <el-form-item label="아이디">
+                <el-input ref="userpw" v-model="member.userid" ></el-input>
+            </el-form-item>
+ 
             <el-form-item label="암호">
-                <el-input v-model="member.userpw" show-password></el-input>
+                <el-input ref="userpw" v-model="member.userpw"  show-password></el-input>
             </el-form-item>
 
             <el-form-item aria-label="">
@@ -49,13 +50,18 @@
         },
 
         // 상태변수의 변화를 감지
-        watch : {
-            member : {
-                handler(e) {
-                    console.log('watch-userid', e);
-                }
-            },
-        },
+        // watch : {
+        //     userid : {
+        //         handler(e) {
+        //             console.log('watch-userid', e);
+        //         }
+        //     },
+        //     userpw : {
+        //         handler(e) {
+        //             console.log('watch-userpw :', e);
+        //         }
+        //     }
+        // },
     }
 </script>
 <style scoped>

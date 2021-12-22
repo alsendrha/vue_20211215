@@ -1,8 +1,8 @@
 
 <template>
   <div>
-
-    <el-container>
+    <!-- 고객페이지 -->
+    <el-container v-if="admin === false">
       <el-header>
          <el-menu :default-active="defaultactive"
           class="el-menu-demo" mode="horizontal"
@@ -29,6 +29,7 @@
             </el-sub-menu>
           </el-sub-menu>
           <el-menu-item index="104">관리자</el-menu-item>
+          <el-menu-item index="105">찐관리자</el-menu-item>
           <el-menu-item index="3" disabled>Info</el-menu-item>
           <el-menu-item index="4">Orders</el-menu-item>
         </el-menu>
@@ -45,6 +46,14 @@
         </el-container>
       </el-container>
 
+    </el-container>
+    <!-- 관리자페이지 -->
+    <el-container v-else-if="admin === true">
+      <el-header>Header</el-header>
+      <el-main>
+      <router-view></router-view>
+      </el-main>
+      <el-footer>Footer</el-footer>
     </el-container>
 
 
@@ -67,7 +76,11 @@
       <router-link to="/Admin1">Admin1</router-link>/
       <router-link to="/CompSlot">CompSlot</router-link>/
       <router-link to="/Upload1">Upload1</router-link>/
-      <router-link to="/CompSlotScope">CompSlotScope</router-link>
+      <router-link to="/CompSlotScope">CompSlotScope</router-link>/
+      <router-link to="/Shop">Shop</router-link>/
+      <router-link to="/Order">Order</router-link>/
+      <router-link to="/Board1">Board1</router-link>/
+      <router-link to="/Board1one">Board1one</router-link>
     </div> 
     
     <hr />
@@ -78,12 +91,30 @@
 
 <script>
 export default {
+  //f5키 눌렀을때 실행(redux === store === vuex)
+  created(){
+    //주소창의 정보를 읽기
+    this.handleAdmin();
+  },
+
   data(){
     return{
       defaultactive:'4',
+      admin : false,
     }
   },
   methods:{
+    handleAdmin(){
+         console.log(window.location.pathname);
+         if ( window.location.pathname ==='/Admin1'||
+          window.location.pathname ==='/Admin'){
+          this.admin = true;
+          }
+          else{
+            this.admin = false;
+          }
+    },
+    
     handleSelect(idx){
       console.log('App.vue => handleSelect', idx);
       if(idx === '1'){
@@ -112,6 +143,12 @@ export default {
       }
       else if(idx === '104'){
         this.$router.push({path:'Admin'});
+      }
+
+
+
+      else if(idx === '105'){
+        window.location.href="/Admin1";
       }
       
     }

@@ -4,8 +4,9 @@
         <el-table :data="items" size="mini" style="width: 100%">
             <el-table-column prop="userid" label="아이디" width="180" />
             <el-table-column prop="uesrname" label="이름" width="180" />
-            <el-table-column prop="userage" label="나이"  />
-            <el-table-column>
+            <el-table-column prop="userage" label="나이" />
+            <el-table-column label="버튼">
+            
                 <!--<slot name="default"></slot> -->
                 <template #default="scope">
                     <el-button size="mini" type="info" >수정</el-button>

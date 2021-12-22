@@ -5,7 +5,7 @@
 
         <input type="button" @click="addCount" value="항목추가" />
         <input type="button" @click="subCount" value="항목삭제" />
-        
+
         <table>
             <tbody>
                 <tr v-for="tmp in count" v-bind:key="tmp">
