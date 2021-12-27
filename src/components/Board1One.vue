@@ -6,7 +6,7 @@
             <el-col :span="12">
                 <el-image :src="item.img" style="width:100%"/>
             </el-col>
-
+            
             <el-col :span="12">
                <p>번호 : {{item.no}}</p>
                <p>제목 : {{item.title}}</p>

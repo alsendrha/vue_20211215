@@ -3,16 +3,14 @@
         <h4>Order.vue</h4>
         <el-row :gutter="20">
             <el-col :span="12">
-                <el-image :src="item.img" style="width:100%"/>
+                <el-image :src="item.img" style="width:80%"/>
             </el-col>
             
             <el-col :span="12">
                 <p>물품명 : {{item.name}}</p>
                 <p>가격   : {{item.price}}</p>
 
-                <el-input-number v-model="num" 
-                    :min="1" :max="item.qty" />
-
+                <el-input-number v-model="num" :min="1" :max="item.qty" />
                 <el-button type="primary" @click="handleOrderAction">주문하기</el-button>
             </el-col>
         </el-row>
