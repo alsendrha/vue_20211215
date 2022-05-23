@@ -9,7 +9,7 @@
             <el-table-column prop="regdate" label="날짜" />
         </el-table>
 
-        <el-pagination layout="prev, pager, next" :total="1000"
+        <el-pagination layout=", pager, next" :total="1000"
             @current-change="currentchange"></el-pagination>
     </div>
 </template>
